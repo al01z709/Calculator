@@ -71,16 +71,23 @@
 
 
     </LinearLayout>
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:textColor="#FFFFFFFF"
+        android:text=" Результат"
+        android:textSize="36sp" />
     <TextView
         android:id="@+id/result"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:gravity="center"
-        android:textColorHint="#696666"
-        android:hint=" Результат"
-        android:textSize="24sp" />
+        android:textColor="#FFFFFFFF"
+        android:hint=" "
+        android:textSize="28sp" />
 
 
 </LinearLayout>
