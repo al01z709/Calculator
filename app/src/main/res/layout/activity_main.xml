@@ -15,7 +15,7 @@
         android:layout_marginTop="50dp"
         android:paddingVertical="50dp">
         <TextView
-            android:id="@+id/tvOldInput"
+            android:id="@+id/OldInput"
             android:layout_width="match_parent"
             android:layout_gravity="center"
             android:background="#222"
@@ -30,7 +30,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/tvCurrentOperand"
+                android:id="@+id/CurrentOperand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -41,7 +41,7 @@
                 android:text="" />
 
             <TextView
-                android:id="@+id/tvInput"
+                android:id="@+id/Input"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="right|center_vertical"
@@ -49,7 +49,7 @@
                 android:textSize="40dp"
                 android:textColor="@color/white"
                 android:paddingHorizontal="30dp"
-                android:text="0"/>
+                android:text=""/>
         </LinearLayout>
 
 
