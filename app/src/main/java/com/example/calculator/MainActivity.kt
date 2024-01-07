@@ -4,9 +4,7 @@ import android.icu.math.BigDecimal
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import com.example.calculator.databinding.ActivityMainBinding
@@ -89,7 +87,7 @@ class MainActivity : AppCompatActivity()  {
         btn8.setOnClickListener { appendNumber("8") }
         btn9.setOnClickListener { appendNumber("9") }
         btn0.setOnClickListener { appendNumber("0") }
-        btnAC.setOnClickListener { appendNumber(".") }
+        btnKrap.setOnClickListener { appendNumber(".") }
         btnBackspace.setOnClickListener { handleBackspace() }
         btnClear.setOnClickListener { clearInput() }
         btnAC.setOnClickListener { allClearInput() }
@@ -117,7 +115,6 @@ class MainActivity : AppCompatActivity()  {
             updateDisplay()
         }
     }
-
     private fun setOperator(operator: Operator) {
         if(currentInput.toString()=="")return
         if (operand1 == null) {
@@ -128,6 +125,7 @@ class MainActivity : AppCompatActivity()  {
         Input.text = ""
         currentOperator = operator
         CurrentOperand.text = operatorToString(operator)
+        currentInput.clear()
     }
     private fun operatorToString(operator: Operator): String {
         return when (operator) {
@@ -153,7 +151,11 @@ class MainActivity : AppCompatActivity()  {
             Operator.MULTIPLY -> result = operand1?.multiply(operand2)
             Operator.DIVIDE -> {
                 if (operand2 != BigDecimal.ZERO) {
-                    result = operand1?.divide(operand2, 10, BigDecimal.ROUND_HALF_UP)
+                    result = if(operand1!!.toInt()  % operand2.toInt()==0){
+                        operand1?.divide(operand2, 0, BigDecimal.ROUND_HALF_UP)
+                    }else {
+                        operand1?.divide(operand2, 5, BigDecimal.ROUND_HALF_UP)
+                    }
                 }else
                 {
                     allClearInput()
@@ -170,7 +172,7 @@ class MainActivity : AppCompatActivity()  {
             operand1 = result
         }
 
-        currentInput.clear()
+
         CurrentOperand.text =""
 
     }
